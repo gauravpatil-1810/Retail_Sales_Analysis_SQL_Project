@@ -47,7 +47,7 @@ CREATE TABLE retail_sales
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
 
-- **Data Exploration**
+1. **Data Exploration**
 
 - **How Many Sales We Have?**
 ```sql
@@ -67,8 +67,7 @@ SELECT
     DISTINCT category AS toatl_category
 FROM retail_sales;
 ```
-
-- **Data Cleaning**
+2. **Data Cleaning**
 ```sql
 SELECT * FROM retail_sales
 WHERE 
