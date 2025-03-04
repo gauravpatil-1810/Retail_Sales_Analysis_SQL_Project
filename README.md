@@ -46,6 +46,7 @@ CREATE TABLE retail_sales
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
+
 - **Data Exploration**
 
 - **How Many Sales We Have?**
@@ -66,6 +67,7 @@ SELECT
     DISTINCT category AS toatl_category
 FROM retail_sales;
 ```
+
 - **Data Cleaning**
 ```sql
 SELECT * FROM retail_sales
