@@ -88,7 +88,8 @@ WHERE
     price_per_unit IS NULL 
     OR 
     cogs IS NULL;
-
+```
+```sql
 DELETE FROM retail_sales
 WHERE
     sale_date IS NULL 
