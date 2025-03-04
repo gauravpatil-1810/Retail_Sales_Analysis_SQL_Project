@@ -4,11 +4,11 @@
 
 **Project Title**: Retail_Sales_Analysis  
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
+In this project, I leveraged SQL to explore, clean, and analyze retail sales data, demonstrating key skills and techniques used by data analysts. The project involved setting up a structured retail sales database, performing in-depth exploratory data analysis (EDA), and answering critical business questions through optimized SQL queries. This project showcases my ability to work with real-world retail data, ensuring data accuracy, extracting valuable insights, and generating actionable reports. It serves as a strong foundation for anyone looking to enhance their SQL proficiency in data analysis.
 
 ## Objectives
 
-1. **Set up a retail sales database**: Create and populate a retail sales database with the provided sales data.
+1. **Set up a retail sales database**: Create and populate a retail sales database with the sales data.
 2. **Data Cleaning**: Identify and remove any records with missing or null values.
 3. **Exploratory Data Analysis (EDA)**: Perform basic exploratory data analysis to understand the dataset.
 4. **Business Analysis**: Use SQL to answer specific business questions and derive insights from the sales data.
@@ -17,11 +17,11 @@ This project is designed to demonstrate SQL skills and techniques typically used
 
 ### 1. Database Setup
 
-- **Database Creation**: The project starts by creating a database named `p1_retail_db`.
-- **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
+- **Database Creation**: The project starts by creating a database named `retail_sales_analysis`.
+- **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transactions_id, sale_date, sale_time, customer_id, gender, age, category, quantity, price_per_unit, cogs (cost of goods sold), and total_sale.
 
 ```sql
-CREATE DATABASE p1_retail_db;
+CREATE DATABASE retail_sales_analysis;
 
 CREATE TABLE retail_sales
 (
@@ -29,9 +29,9 @@ CREATE TABLE retail_sales
     sale_date DATE,	
     sale_time TIME,
     customer_id INT,	
-    gender VARCHAR(10),
+    gender VARCHAR(6),
     age INT,
-    category VARCHAR(35),
+    category VARCHAR(15),
     quantity INT,
     price_per_unit FLOAT,	
     cogs FLOAT,
@@ -46,22 +46,67 @@ CREATE TABLE retail_sales
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
-```sql
-SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
+- **Data Exploration**
 
+- **How Many Sales We Have?**
+```sql
+SELECT
+    COUNT(*) AS total_sales
+FROM retail_sales;
+```
+- **How Many Unique Customer We Have?**
+```sql
+SELECT
+    COUNT(DISTINCT customer_id) AS toatal_customer
+FROM retail_sales;
+```
+- **How Many Category We Have?**
+```sql
+SELECT
+    DISTINCT category AS toatl_category
+FROM retail_sales;
+```
+- **Data Cleaning**
+```sql
 SELECT * FROM retail_sales
 WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+    sale_date IS NULL 
+    OR 
+    sale_time IS NULL 
+    OR 
+    customer_id IS NULL 
+    OR 
+    gender IS NULL 
+    OR 
+    age IS NULL 
+    OR 
+    category IS NULL 
+    OR 
+    quantity IS NULL 
+    OR 
+    price_per_unit IS NULL 
+    OR 
+    cogs IS NULL;
 
 DELETE FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+WHERE
+    sale_date IS NULL 
+    OR 
+    sale_time IS NULL 
+    OR 
+    customer_id IS NULL 
+    OR 
+    gender IS NULL 
+    OR 
+    age IS NULL 
+    OR 
+    category IS NULL 
+    OR 
+    quantity IS NULL 
+    OR 
+    price_per_unit IS NULL 
+    OR 
+    cogs IS NULL;
 ```
 
 ### 3. Data Analysis & Findings
